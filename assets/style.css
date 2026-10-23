@@ -752,6 +752,36 @@ section {
   outline: none;
   border-color: var(--gold);
 }
+.form-row input[type="file"] {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--stone);
+  padding: 10px 0;
+}
+.form-row input[type="file"]::file-selector-button {
+  margin-right: 16px;
+  padding: 10px 20px;
+  border: 1px solid var(--navy);
+  background: transparent;
+  color: var(--navy);
+  font-family: 'Jost', sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.form-row input[type="file"]::file-selector-button:hover {
+  background: var(--navy);
+  color: var(--white);
+}
+.form-hint {
+  font-size: 11px;
+  font-weight: 300;
+  color: var(--stone);
+  margin-top: 8px;
+}
 .form-row.has-error input,
 .form-row.has-error textarea { border-color: #B3402C; }
 .form-error {

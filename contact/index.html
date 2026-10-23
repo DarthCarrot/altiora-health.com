@@ -43,7 +43,7 @@
 <section id="form-section" class="section-head-center">
   <div class="form-wrap">
 
-    <form id="contactForm" action="https://formsubmit.co/tommi@copperstream.capital" method="POST" novalidate>
+    <form id="contactForm" action="https://formsubmit.co/tommi@copperstream.capital" method="POST" enctype="multipart/form-data" novalidate>
 
       <!-- FormSubmit configuration -->
       <input type="hidden" name="_subject" value="New enquiry via altiora-health.com">
@@ -95,8 +95,14 @@
         <p class="form-error">Please enter a message.</p>
       </div>
 
+      <div class="form-row fade-up" data-field="attachment">
+        <label for="attachment">Attachment <span style="text-transform:none; letter-spacing:0; color:var(--stone);">(optional — pitch deck, teaser, etc.)</span></label>
+        <input type="file" id="attachment" name="attachment" accept=".pdf,.ppt,.pptx,.doc,.docx,.key">
+        <p class="form-error" id="attachmentError">File is too large — please keep attachments under 10MB in total, or share a download link in your message instead.</p>
+      </div>
+
       <p class="form-privacy fade-up">
-        Information submitted through this form is used solely to respond to your enquiry and is not shared with third parties beyond those required to process the message. By submitting, you consent to Altiora storing your details for this purpose. See our full privacy notice for more detail, or contact us directly with any questions.
+        Information submitted through this form, including any attachment, is used solely to respond to your enquiry and is not shared with third parties beyond those required to process the message. By submitting, you consent to Altiora storing your details for this purpose. Attachments are limited to 10MB; for larger files, please share a download link in your message instead. See our full privacy notice for more detail, or contact us directly with any questions.
       </p>
 
       <div class="fade-up">
@@ -187,6 +193,17 @@
         row.classList.remove('has-error');
       }
     });
+
+    // Attachment size check — FormSubmit's combined limit is 10MB
+    const fileInput = document.getElementById('attachment');
+    const fileRow = fileInput.closest('.form-row');
+    const MAX_BYTES = 10 * 1024 * 1024;
+    if (fileInput.files.length && fileInput.files[0].size > MAX_BYTES) {
+      fileRow.classList.add('has-error');
+      valid = false;
+    } else {
+      fileRow.classList.remove('has-error');
+    }
 
     if (!valid) {
       e.preventDefault();
