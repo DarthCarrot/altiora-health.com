@@ -3,669 +3,161 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Altiora Health Ventures</title>
+<title>Altiora — European MedTech &amp; HealthTech Investment and Advisory</title>
+<meta name="description" content="Altiora is a European MedTech and HealthTech platform combining Corporate Advisory and operator-led Health Ventures investing. Built by operators, driven by value creation.">
+<meta property="og:title" content="Altiora — Built by Operators. Driven by Value Creation.">
+<meta property="og:description" content="Bridging clinical expertise, business strategy and investment capital to accelerate European healthcare innovation.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://altiora-health.com/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
-
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  :root {
-    --navy:       #1A2B4A;
-    --navy-deep:  #0F1C30;
-    --navy-mid:   #243559;
-    --gold:       #C09A5A;
-    --gold-light: #D4B47A;
-    --cream:      #F4F1EB;
-    --cream-dark: #EAE5DA;
-    --stone:      #8C8578;
-    --white:      #FFFFFF;
-    --text-body:  #2C2C2A;
-  }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'Jost', sans-serif;
-    font-weight: 300;
-    color: var(--text-body);
-    background: var(--white);
-    overflow-x: hidden;
-  }
-
-  /* ─── NAV ─── */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 28px 60px;
-    background: transparent;
-    transition: background 0.4s, padding 0.4s;
-  }
-  nav.scrolled {
-    background: rgba(26, 43, 74, 0.97);
-    padding: 18px 60px;
-    backdrop-filter: blur(8px);
-  }
-  .nav-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 400;
-    font-size: 18px;
-    letter-spacing: 0.08em;
-    color: var(--white);
-    text-decoration: none;
-  }
-  .nav-logo span {
-    color: var(--gold);
-  }
-  .nav-links {
-    display: flex;
-    gap: 40px;
-    list-style: none;
-  }
-  .nav-links a {
-    font-size: 11px;
-    font-weight: 400;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.75);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-  .nav-links a:hover { color: var(--gold-light); }
-
-  /* ─── HERO ─── */
-  #hero {
-    position: relative;
-    height: 100vh;
-    min-height: 680px;
-    background: var(--navy-deep);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 0 60px 80px;
-    overflow: hidden;
-  }
-
-  .hero-bg-grid {
-    position: absolute;
-    inset: 0;
-    background-image:
-      linear-gradient(rgba(192,154,90,0.06) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(192,154,90,0.06) 1px, transparent 1px);
-    background-size: 80px 80px;
-    mask-image: radial-gradient(ellipse 80% 60% at 60% 40%, black 20%, transparent 80%);
-  }
-
-  .hero-circle {
-    position: absolute;
-    right: -120px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 680px;
-    height: 680px;
-    border-radius: 50%;
-    border: 1px solid rgba(192,154,90,0.12);
-    pointer-events: none;
-  }
-  .hero-circle::after {
-    content: '';
-    position: absolute;
-    inset: 60px;
-    border-radius: 50%;
-    border: 1px solid rgba(192,154,90,0.08);
-  }
-
-  .hero-eyebrow {
-    font-size: 11px;
-    font-weight: 400;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 24px;
-  }
-
-  .hero-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 300;
-    font-size: clamp(52px, 6vw, 88px);
-    line-height: 1.05;
-    color: var(--white);
-    max-width: 720px;
-    margin-bottom: 32px;
-  }
-  .hero-title em {
-    font-style: italic;
-    color: var(--gold-light);
-  }
-
-  .hero-subtitle {
-    font-size: 14px;
-    font-weight: 300;
-    letter-spacing: 0.04em;
-    line-height: 1.7;
-    color: rgba(255,255,255,0.55);
-    max-width: 480px;
-    margin-bottom: 48px;
-  }
-
-  .hero-stats {
-    display: flex;
-    gap: 48px;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    padding-top: 40px;
-    max-width: 560px;
-  }
-  .stat-item {}
-  .stat-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 400;
-    font-size: 28px;
-    color: var(--white);
-    letter-spacing: 0.02em;
-  }
-  .stat-label {
-    font-size: 10px;
-    font-weight: 400;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-top: 4px;
-  }
-
-  .hero-scroll {
-    position: absolute;
-    bottom: 36px;
-    right: 60px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-size: 10px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.35);
-    writing-mode: vertical-rl;
-  }
-  .hero-scroll::before {
-    content: '';
-    display: block;
-    width: 1px;
-    height: 48px;
-    background: var(--gold);
-    opacity: 0.4;
-  }
-
-  /* ─── SECTIONS ─── */
-  section {
-    padding: 100px 60px;
-  }
-  section:nth-child(even) {
-    background: var(--cream);
-  }
-
-  .section-eyebrow {
-    font-size: 10px;
-    font-weight: 400;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 20px;
-  }
-
-  .section-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 300;
-    font-size: clamp(34px, 3.5vw, 52px);
-    line-height: 1.15;
-    color: var(--navy);
-    max-width: 680px;
-    margin-bottom: 24px;
-  }
-  .section-title em { font-style: italic; }
-
-  .section-lead {
-    font-size: 15px;
-    font-weight: 300;
-    line-height: 1.8;
-    color: var(--stone);
-    max-width: 540px;
-    margin-bottom: 60px;
-  }
-
-  /* ─── TWO-COL LAYOUT ─── */
-  .two-col {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: start;
-  }
-  .two-col-left {}
-  .two-col-right {}
-
-  /* ─── ABOUT / MANDATE ─── */
-  #mandate {
-    background: var(--navy);
-    color: var(--white);
-  }
-  #mandate .section-title { color: var(--white); }
-  #mandate .section-lead  { color: rgba(255,255,255,0.55); }
-  #mandate .section-eyebrow { color: var(--gold); }
-
-  .mandate-pillars {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    background: rgba(255,255,255,0.1);
-    margin-top: 60px;
-    border: 1px solid rgba(255,255,255,0.1);
-  }
-  .pillar {
-    padding: 40px 32px;
-    background: var(--navy);
-    transition: background 0.3s;
-  }
-  .pillar:hover { background: var(--navy-mid); }
-  .pillar-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 11px;
-    font-weight: 400;
-    letter-spacing: 0.2em;
-    color: var(--gold);
-    margin-bottom: 20px;
-  }
-  .pillar-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 400;
-    font-size: 20px;
-    color: var(--white);
-    margin-bottom: 12px;
-    line-height: 1.3;
-  }
-  .pillar-body {
-    font-size: 13px;
-    font-weight: 300;
-    line-height: 1.75;
-    color: rgba(255,255,255,0.5);
-  }
-
-  /* ─── FOCUS AREAS ─── */
-  .themes-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 24px;
-    margin-top: 48px;
-  }
-  .theme-card {
-    padding: 28px 20px;
-    border: 1px solid var(--cream-dark);
-    position: relative;
-  }
-  .theme-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 32px;
-    height: 2px;
-    background: var(--gold);
-  }
-  .theme-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 400;
-    font-size: 17px;
-    color: var(--navy);
-    line-height: 1.3;
-  }
-
-  /* ─── TERMS TABLE ─── */
-  #terms {
-    background: var(--navy-deep);
-    color: var(--white);
-  }
-  #terms .section-title { color: var(--white); }
-  #terms .section-eyebrow { color: var(--gold); }
-
-  .terms-table {
-    width: 100%;
-    max-width: 680px;
-    border-collapse: collapse;
-    margin-top: 48px;
-  }
-  .terms-table tr {
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-  }
-  .terms-table tr:first-child {
-    border-top: 1px solid rgba(255,255,255,0.08);
-  }
-  .terms-table td {
-    padding: 18px 0;
-    font-size: 14px;
-    font-weight: 300;
-    vertical-align: top;
-  }
-  .terms-table td:first-child {
-    width: 44%;
-    font-size: 10px;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--gold);
-    padding-right: 32px;
-  }
-  .terms-table td:last-child {
-    color: rgba(255,255,255,0.8);
-    letter-spacing: 0.02em;
-  }
-
-  /* ─── CONTACT ─── */
-  #contact {
-    background: var(--cream);
-    text-align: center;
-  }
-  #contact .section-title {
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-  }
-  #contact .section-lead {
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-  }
-
-  .contact-block {
-    display: inline-block;
-    margin-top: 16px;
-    padding: 40px 60px;
-    background: var(--navy);
-    text-align: left;
-  }
-  .contact-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 22px;
-    font-weight: 400;
-    color: var(--white);
-    margin-bottom: 4px;
-  }
-  .contact-role {
-    font-size: 11px;
-    font-weight: 400;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 20px;
-  }
-  .contact-detail {
-    font-size: 13px;
-    font-weight: 300;
-    color: rgba(255,255,255,0.6);
-    line-height: 2;
-  }
-  .contact-detail a {
-    color: var(--gold-light);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-  .contact-detail a:hover {
-    color: var(--white);
-  }
-
-  .contact-note {
-    margin-top: 40px;
-    font-size: 11px;
-    font-weight: 300;
-    letter-spacing: 0.05em;
-    color: var(--stone);
-    font-style: italic;
-  }
-
-  /* ─── FOOTER ─── */
-  footer {
-    background: var(--navy-deep);
-    padding: 40px 60px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .footer-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 15px;
-    font-weight: 400;
-    color: rgba(255,255,255,0.4);
-    letter-spacing: 0.06em;
-  }
-  .footer-copy {
-    font-size: 11px;
-    font-weight: 300;
-    color: rgba(255,255,255,0.25);
-    letter-spacing: 0.05em;
-  }
-  .footer-conf {
-    font-size: 10px;
-    font-weight: 300;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: rgba(192,154,90,0.4);
-  }
-
-  /* ─── DIVIDER LINE ─── */
-  .gold-rule {
-    width: 40px;
-    height: 1px;
-    background: var(--gold);
-    margin-bottom: 40px;
-  }
-
-  /* ─── ANIMATIONS ─── */
-  .fade-up {
-    opacity: 0;
-    transform: translateY(28px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-  }
-  .fade-up.visible {
-    opacity: 1;
-    transform: none;
-  }
-  .fade-up:nth-child(2) { transition-delay: 0.1s; }
-  .fade-up:nth-child(3) { transition-delay: 0.2s; }
-  .fade-up:nth-child(4) { transition-delay: 0.3s; }
-  .fade-up:nth-child(5) { transition-delay: 0.4s; }
-
-  /* ─── RESPONSIVE ─── */
-  @media (max-width: 900px) {
-    nav, section, footer { padding-left: 28px; padding-right: 28px; }
-    #hero { padding: 0 28px 64px; }
-    nav.scrolled { padding-left: 28px; padding-right: 28px; }
-    .two-col { grid-template-columns: 1fr; gap: 48px; }
-    .mandate-pillars { grid-template-columns: 1fr; }
-    .themes-grid { grid-template-columns: 1fr 1fr; }
-    .hero-stats { gap: 28px; }
-    .hero-circle { display: none; }
-  }
-  @media (max-width: 560px) {
-    .nav-links { display: none; }
-    .themes-grid { grid-template-columns: 1fr; }
-    .hero-stats { flex-direction: column; gap: 20px; }
-    .contact-block { padding: 32px 28px; }
-    footer { flex-direction: column; gap: 12px; text-align: center; }
-  }
-</style>
+<link rel="stylesheet" href="/assets/style.css">
 </head>
 <body>
 
 <!-- NAV -->
-<nav id="nav">
-  <a href="#" class="nav-logo">Altiora<span> Health</span> Ventures</a>
-  <ul class="nav-links">
-    <li><a href="#mandate">Mandate</a></li>
-    <li><a href="#focus">Focus</a></li>
-    <li><a href="#terms">Terms</a></li>
-    <li><a href="#contact">Contact</a></li>
+<nav id="nav" class="transparent-top">
+  <a href="/" class="nav-logo">Altiora</a>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="/advisory/" >Advisory</a></li>
+    <li><a href="/ventures/">Ventures</a></li>
+    <li><a href="/contact/">Contact</a></li>
   </ul>
 </nav>
 
 <!-- HERO -->
-<section id="hero">
+<section id="hero" class="full">
   <div class="hero-bg-grid"></div>
   <div class="hero-circle"></div>
 
-  <p class="hero-eyebrow">Fund I — Limited Partner Briefing</p>
-  <h1 class="hero-title">Operator-led<br>venture capital for<br><em>European MedTech</em></h1>
-  <p class="hero-subtitle">Built by the people who scaled Europe's leading diagnostics platform. Seed to Series B.</p>
+  <p class="hero-eyebrow">European MedTech &amp; HealthTech</p>
+  <h1 class="hero-title">Built by operators.<br><em>Driven by value creation.</em></h1>
+  <p class="hero-subtitle">Bridging clinical expertise, business strategy and investment capital to accelerate healthcare innovation.</p>
 
-  <div class="hero-stats">
-    <div class="stat-item">
-      <div class="stat-num">€50m</div>
-      <div class="stat-label">Target Fund Size</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">SCSp</div>
-      <div class="stat-label">Luxembourg Structure</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">15–20</div>
-      <div class="stat-label">Portfolio Companies</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">2026</div>
-      <div class="stat-label">Vintage Year</div>
-    </div>
+  <div class="btn-group fade-up">
+    <a href="/advisory/" class="btn btn-outline">Explore Corporate Advisory</a>
+    <a href="/ventures/" class="btn btn-filled">Explore Health Ventures</a>
   </div>
 
   <div class="hero-scroll">Scroll</div>
 </section>
 
-<!-- MANDATE -->
-<section id="mandate">
-  <div class="two-col">
-    <div class="two-col-left">
-      <p class="section-eyebrow fade-up">Our Mandate</p>
-      <h2 class="section-title fade-up">Early disease detection.<br><em>Decentralised diagnostics.</em><br>Scalable clinical platforms.</h2>
-      <p class="section-lead fade-up">Altiora Health Ventures is an operator-led fund investing in European MedTech companies from Seed to Series B. Our four founding partners have collectively built, led, and exited across Europe's diagnostics, medtech, and clinical infrastructure landscape.</p>
+<!-- TWO BUSINESSES -->
+<section id="businesses">
+  <p class="section-eyebrow fade-up">Two Businesses. One Operating Philosophy.</p>
+  <h2 class="section-title fade-up">An integrated platform for<br><em>European healthcare innovation</em></h2>
+  <p class="section-lead fade-up">Altiora Corporate Advisory and Altiora Health Ventures share a brand, a sector focus and an operator-led philosophy — while operating as independent, complementary businesses.</p>
+
+  <div class="business-split">
+    <div class="business-card fade-up">
+      <div class="business-tag">Altiora Corporate Advisory</div>
+      <h3 class="business-title">Strategic, financial and operational advisory</h3>
+      <p class="business-body">For MedTech and HealthTech companies, investors and strategic partners navigating growth, capital and strategic transactions.</p>
+      <a href="/advisory/" class="business-link">Discover Advisory →</a>
     </div>
-    <div class="two-col-right fade-up">
-      <div class="gold-rule"></div>
-      <p style="font-size:14px; font-weight:300; line-height:1.9; color:rgba(255,255,255,0.55);">We invest €0.5–3m at entry, with reserves for up to €6m per company and a target ownership of 10–25%. Our primary geography is Europe, with selective North American exposure where portfolio companies require it.</p>
-      <br>
-      <p style="font-size:14px; font-weight:300; line-height:1.9; color:rgba(255,255,255,0.55);">We do not invest passively. We bring clinical validation expertise, regulatory strategy, commercial network access, and operational discipline to every board seat — the same capabilities that built SYNLAB into Europe's leading diagnostics network.</p>
+    <div class="business-card dark fade-up">
+      <div class="business-tag">Altiora Health Ventures</div>
+      <h3 class="business-title">Operator-led venture investing</h3>
+      <p class="business-body">Focused on high-potential European MedTech and HealthTech companies, from Seed to Series B.</p>
+      <a href="/ventures/" class="business-link">Discover Ventures →</a>
     </div>
   </div>
+</section>
 
-  <div class="mandate-pillars">
+<!-- THE ALTIORA ADVANTAGE -->
+<section id="advantage" class="section-navy">
+  <p class="section-eyebrow fade-up">The Altiora Advantage</p>
+  <h2 class="section-title fade-up">What underpins<br><em>both businesses</em></h2>
+
+  <div class="pillars-grid">
     <div class="pillar fade-up">
       <div class="pillar-num">01</div>
-      <div class="pillar-title">Operator Underwriting</div>
-      <div class="pillar-body">We assess clinical validity, regulatory pathway, and commercial viability from first-hand operator experience — not from a spreadsheet.</div>
+      <div class="pillar-title">Clinical Insight</div>
+      <div class="pillar-body">Deep understanding of healthcare, diagnostics, clinical development and regulatory pathways.</div>
     </div>
     <div class="pillar fade-up">
       <div class="pillar-num">02</div>
-      <div class="pillar-title">Active Value Creation</div>
-      <div class="pillar-body">Board-level governance, CFO discipline, clinical network introductions, and regulatory strategy from day one of investment.</div>
+      <div class="pillar-title">Operator Experience</div>
+      <div class="pillar-body">Hands-on experience building, leading, scaling and transforming healthcare businesses.</div>
     </div>
     <div class="pillar fade-up">
       <div class="pillar-num">03</div>
-      <div class="pillar-title">European Platform</div>
-      <div class="pillar-body">Luxembourg SCSp structure, AIFM-compliant, with an existing seed portfolio and active deal flow across the Nordic, DACH, and Benelux markets.</div>
+      <div class="pillar-title">International Networks</div>
+      <div class="pillar-body">Relationships across healthcare providers, MedTech companies, investors and strategic partners.</div>
     </div>
   </div>
 </section>
 
-<!-- FOCUS AREAS -->
-<section id="focus">
-  <p class="section-eyebrow fade-up">Investment Themes</p>
-  <h2 class="section-title fade-up">Five thematic areas shaping<br><em>the future of clinical medicine</em></h2>
-  <p class="section-lead fade-up">We concentrate capital in areas where operator insight creates durable asymmetry — not broad medtech generalism.</p>
+<!-- WHO WE WORK WITH -->
+<section id="who" class="section-alt">
+  <p class="section-eyebrow fade-up">Who We Work With</p>
+  <h2 class="section-title fade-up">Bridging clinical innovation,<br><em>business and capital</em></h2>
+  <p class="section-lead fade-up">Altiora works across the full ecosystem of European healthcare innovation.</p>
 
-  <div class="themes-grid">
-    <div class="theme-card fade-up">
-      <div class="theme-title">AI-enabled Cardiology Diagnostics</div>
+  <div class="cards-grid cols-4">
+    <div class="card-item fade-up">
+      <div class="card-title">Founders</div>
+      <div class="card-body">MedTech and HealthTech founders building the next generation of clinical solutions.</div>
     </div>
-    <div class="theme-card fade-up">
-      <div class="theme-title">AI Diagnostics &amp; Clinical Decision Support</div>
+    <div class="card-item fade-up">
+      <div class="card-title">Growing Companies</div>
+      <div class="card-body">Healthcare companies scaling commercially and preparing for their next stage of growth.</div>
     </div>
-    <div class="theme-card fade-up">
-      <div class="theme-title">Precision Medicine &amp; Pharmacogenomics</div>
+    <div class="card-item fade-up">
+      <div class="card-title">Investors</div>
+      <div class="card-body">Venture capital and private equity investors seeking sector-specific expertise.</div>
     </div>
-    <div class="theme-card fade-up">
-      <div class="theme-title">Digital Biomarkers &amp; Clinical Trial Analytics</div>
-    </div>
-    <div class="theme-card fade-up">
-      <div class="theme-title">Smart Neurovascular Intervention</div>
+    <div class="card-item fade-up">
+      <div class="card-title">Strategic Partners</div>
+      <div class="card-body">Corporates and strategic acquirers exploring partnerships across European healthcare.</div>
     </div>
   </div>
 </section>
 
-<!-- FUND TERMS -->
-<section id="terms">
-  <div class="two-col">
-    <div>
-      <p class="section-eyebrow fade-up">Fund Economics</p>
-      <h2 class="section-title fade-up">Institutional terms.<br><em>Aligned structure.</em></h2>
-      <p style="font-size:14px; font-weight:300; line-height:1.9; color:rgba(255,255,255,0.5); max-width:380px;" class="fade-up">Full LPA, ILPA-aligned DDQ, data room access, and reference introductions are available upon request following an initial conversation.</p>
-    </div>
-    <div class="fade-up">
-      <table class="terms-table">
-        <tr><td>Fund Name</td><td>Altiora Health Ventures Fund I</td></tr>
-        <tr><td>Domicile</td><td>Luxembourg</td></tr>
-        <tr><td>Structure</td><td>Alternative Investment Fund (SCSp)</td></tr>
-        <tr><td>Target / Hard Cap</td><td>€50m / €65m</td></tr>
-        <tr><td>Minimum Commitment</td><td>€1m (GP discretion)</td></tr>
-        <tr><td>Management Fee</td><td>2.0% on commitments during investment period; on NAV thereafter</td></tr>
-        <tr><td>Carried Interest</td><td>20%</td></tr>
-        <tr><td>Preferred Return</td><td>8% annual, compounded</td></tr>
-        <tr><td>Distribution Waterfall</td><td>European (whole-of-fund)</td></tr>
-        <tr><td>GP Commitment</td><td>1% of commitments</td></tr>
-        <tr><td>Investment Period</td><td>5 years from final close</td></tr>
-        <tr><td>Fund Term</td><td>10 years + two 1-year extensions</td></tr>
-      </table>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
+<!-- CLOSING CTA -->
+<section id="cta" class="section-navy-deep section-head-center">
   <p class="section-eyebrow fade-up">Get in Touch</p>
-  <h2 class="section-title fade-up">Partnering on<br><em>European MedTech</em></h2>
-  <p class="section-lead fade-up">We are in the process of forming Fund I. If you represent an institutional LP and would like to discuss a potential commitment, please reach out directly.</p>
-
-  <div class="contact-block fade-up">
-    <div class="contact-name">Tommi Vaskivuo</div>
-    <div class="contact-role">Managing Partner</div>
-    <div class="contact-detail">
-      <a href="mailto:tommi@copperstream.capital">tommi@copperstream.capital</a><br>
-      Altiora Health Ventures<br>
-      Luxembourg
-    </div>
+  <h2 class="section-title fade-up">Building the future of<br><em>healthcare together</em></h2>
+  <p class="section-lead fade-up">Whether you are scaling a healthcare company, exploring strategic opportunities or seeking an experienced investment partner, we welcome the conversation.</p>
+  <div class="fade-up" style="display:flex; justify-content:center;">
+    <a href="/contact/" class="btn btn-filled">Contact Altiora →</a>
   </div>
-
-  <p class="contact-note fade-up">This website is intended solely for qualified institutional investors. Information herein is confidential and subject to the fund's full legal documentation.</p>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo">Altiora Health Ventures</div>
-  <div class="footer-copy">© 2026 Altiora Health Ventures. All rights reserved.</div>
-  <div class="footer-conf">For Institutional Investors Only</div>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="/" class="footer-logo">Altiora</a>
+      <p class="footer-tagline">A European MedTech and HealthTech investment and advisory platform.</p>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/advisory/">Advisory</a></li>
+          <li><a href="/ventures/">Ventures</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/contact/#privacy">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 Altiora. All rights reserved.</div>
+  </div>
 </footer>
 
-<script>
-  const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 60);
-  });
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        observer.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.12 });
-
-  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-</script>
+<script src="/assets/main.js"></script>
 </body>
 </html>
